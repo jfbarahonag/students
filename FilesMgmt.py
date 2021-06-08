@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 from pandas.core.frame import DataFrame
 
+OPTIONS = {
+    "check":'1',
+    "update":'2',
+    "add":'3',
+    "remove":'4',
+    "clean":'5',
+    "exit":'6',
+}
+
 # ----------------------- CSV  -----------------------
 def CSV_checkExistence(filename:str)->dict:
     results = {
@@ -78,22 +87,22 @@ def infiniteLoop(df:DataFrame):
         printMenu()
         user = input()
         
-        if user == '1':
+        if user == OPTIONS['check']:
             df_showData(df)
             continue
-        elif user == '2': # TODO
+        elif user == OPTIONS['update']: # TODO
             
             continue
-        elif user == '3':
+        elif user == OPTIONS['add']:
             
             continue
-        elif user == '4':
+        elif user == OPTIONS['remove']:
             
             continue
-        elif user == '5':
+        elif user == OPTIONS['clean']:
             
             continue
-        elif user == '6':
+        elif user == OPTIONS['exit']:
             print("\nBye")
             break
         else:
