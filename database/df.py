@@ -1,6 +1,17 @@
 import pandas as pd
 from pandas.core.frame import DataFrame
 
+# ------------------------ DF ------------------------
+
+def df_isEmpty(df:DataFrame):
+    return df.empty
+
+def df_showData(df:DataFrame):
+    if (df_isEmpty(df)):
+        print("\nIt is empty. Please add at least 1 student\n")
+        return
+    print(df)
+
 def df_create():
     results = {
         "created" : False
@@ -28,4 +39,5 @@ def df_addNew(df:DataFrame, args:list)->DataFrame:
     df.index.name = "index"
     
     return df
+
 # ---------------------- END DF ----------------------
