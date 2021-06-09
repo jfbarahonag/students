@@ -20,13 +20,14 @@ def df_create():
     }
     try:
         fields = [
-            'DNI', 
-            'NAME', 
-            'GRADES', 
-            'COMMENTS', 
+            'dni', 
+            'name', 
+            'grades', 
+            'comments', 
         ]
 
         df = pd.DataFrame({}, columns=fields, index={})
+        df.index.name = "index"
         
         results["df"] = df
         results["created"] = True
@@ -46,6 +47,8 @@ def df_showData(df:DataFrame):
 
 def df_addNew(df:DataFrame, args:list)->DataFrame:
     df = df.append(pd.Series(args, index=df.columns), ignore_index=True)
+    df.index.name = "index"
+    
     return df
 # ---------------------- END DF ----------------------
 # ----------------------- CSV  -----------------------
@@ -90,7 +93,7 @@ def CSV_open(filename:str)->DataFrame:
 
 def CSV_save(df:DataFrame):
     filename = 'students_db.csv'
-    
+
     if os.path.isfile(filename): #exists
         os.remove(filename)
     
