@@ -1,1 +1,3 @@
 *.csv
+database/__pycache__
+database/show/__pycache__
