@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from pandas.core.frame import DataFrame
 
 OPTIONS = {
@@ -86,6 +87,15 @@ def CSV_open(filename:str)->DataFrame:
         print("DB created")
     
     return file['df']
+
+def CSV_save(df:DataFrame):
+    filename = 'students_db.csv'
+    
+    if os.path.isfile(filename): #exists
+        os.remove(filename)
+    
+    df.to_csv(filename)
+
 # --------------------- END CSV  ---------------------
 # ----------------------- VIEW -----------------------
 def printStartup():
@@ -141,7 +151,7 @@ def infiniteLoop(df:DataFrame):
             
             continue
         elif user == OPTIONS['save']:
-            #CSV_save(df)
+            CSV_save(df)
             
             continue
         elif user == OPTIONS['exit']:
