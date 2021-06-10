@@ -46,7 +46,7 @@ def student_addNew(df:DataFrame):
     comments = input('Insert comments about the student: ')
     student = [
         dni,
-        name.lower(),
+        name.capitalize(),
         grade,
         comments.lower(),
     ]
