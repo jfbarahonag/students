@@ -53,6 +53,9 @@ def student_remove(df:DataFrame):
     idx = int(input('Please insert the index of the student: '))
 
     return df_remove(df, idx)
+
+def student_cleanAll():
+    return df_reset()
 # -------------------- END STUDENT -------------------
 
 def infiniteLoop(df:DataFrame):
@@ -74,7 +77,7 @@ def infiniteLoop(df:DataFrame):
             df = student_remove(df)
             continue
         elif user == OPTIONS['clean']:
-            
+            df = student_cleanAll()
             continue
         elif user == OPTIONS['save']:
             CSV_save(df)

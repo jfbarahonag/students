@@ -44,4 +44,8 @@ def df_remove(df:DataFrame, idx:int)->DataFrame:
     df = df.drop(index=idx)
 
     return df
+
+def df_reset():
+    res = df_create()
+    return res["df"] 
 # ---------------------- END DF ----------------------
