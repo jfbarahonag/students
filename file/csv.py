@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import pandas.core.frame as DataFrame
 
-from database import df_create
+from database import df_create, df_saveCSV
 
 # ----------------------- CSV  -----------------------
 def CSV_checkExistence(filename:str)->dict:
@@ -26,7 +26,7 @@ def CSV_createFile(filename:str)->dict:
         res = df_create()
         df = res["df"]
         
-        df.to_csv(filename)
+        df_saveCSV(df, filename)
         results["df"] = df
         results["created"] = True
         return results
@@ -50,7 +50,7 @@ def CSV_save(df:DataFrame):
 
     if os.path.isfile(filename): #exists
         os.remove(filename)
-    
-    df.to_csv(filename)
+
+    df_saveCSV(df, filename)
 
 # --------------------- END CSV  ---------------------

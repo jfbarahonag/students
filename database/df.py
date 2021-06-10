@@ -51,6 +51,9 @@ def df_update(df:DataFrame, args:any)->DataFrame:
     df.index.name = "index" # to avoid deleting index in the dataframe
     return df
 
+def df_saveCSV(df:DataFrame, filename:str):
+    df.to_csv(filename)
+
 def df_reset():
     res = df_create()
     return res["df"] 
