@@ -11,7 +11,7 @@ def CSV_checkExistence(filename:str)->dict:
         "found" : False
     }
     try:
-        df = pd.read_csv(filename, skiprows=1, names=["DNI", "NAME", "GRADES", "COMMENTS"])
+        df = pd.read_csv(filename, skiprows=1, names=["dni", "name", "grades", "comments"])
         results["df"] = df
         results["found"] = True
         return results
