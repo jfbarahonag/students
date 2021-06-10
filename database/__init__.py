@@ -1,1 +1,1 @@
-from .df import df_create, df_addNew, df_showData
+from .df import df_create, df_addNew, df_showData, df_remove

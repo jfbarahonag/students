@@ -40,4 +40,8 @@ def df_addNew(df:DataFrame, args:list)->DataFrame:
     
     return df
 
+def df_remove(df:DataFrame, idx:int)->DataFrame:
+    df = df.drop(index=idx)
+
+    return df
 # ---------------------- END DF ----------------------

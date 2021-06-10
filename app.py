@@ -30,6 +30,9 @@ def printMenu():
     print("+-----------------------------+")
 # --------------------- END VIEW ---------------------
 # ---------------------- STUDENT ---------------------
+def student_modify(args):
+    pass
+
 def student_addNew(df:DataFrame):
     dni = input('Insert DNI: ')
     name = input('Insert name: ')
@@ -43,6 +46,13 @@ def student_addNew(df:DataFrame):
     ]
 
     return df_addNew(df, student)
+
+def student_remove(df:DataFrame):
+    df_showData(df)
+
+    idx = int(input('Please insert the index of the student: '))
+
+    return df_remove(df, idx)
 # -------------------- END STUDENT -------------------
 
 def infiniteLoop(df:DataFrame):
@@ -61,7 +71,7 @@ def infiniteLoop(df:DataFrame):
             df = student_addNew(df)
             continue
         elif user == OPTIONS['remove']:
-            
+            df = student_remove(df)
             continue
         elif user == OPTIONS['clean']:
             
