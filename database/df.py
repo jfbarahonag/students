@@ -47,8 +47,8 @@ def df_remove(df:DataFrame, idx:int)->DataFrame:
 
 def df_update(df:DataFrame, args:any)->DataFrame:
     idx, field, val = args
-    field = field.upper()
     df.loc[idx, field] = val
+    df.index.name = "index" # to avoid deleting index in the dataframe
     return df
 
 def df_reset():
