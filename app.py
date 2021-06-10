@@ -30,8 +30,14 @@ def printMenu():
     print("+-----------------------------+")
 # --------------------- END VIEW ---------------------
 # ---------------------- STUDENT ---------------------
-def student_modify(args):
-    pass
+def student_update(df:DataFrame):
+    df_showData(df)
+
+    idx = int(input('Please insert the index of the student: '))
+    field = input('Please insert the field you want change: ')
+    val = input(f'Please insert the new value to the {field}: ')
+
+    return df_update(df, (idx, field, val))
 
 def student_addNew(df:DataFrame):
     dni = input('Insert DNI: ')
@@ -68,7 +74,7 @@ def infiniteLoop(df:DataFrame):
             df_showData(df)
             continue
         elif user == OPTIONS['update']: # TODO
-            
+            df = student_update(df)
             continue
         elif user == OPTIONS['add']:
             df = student_addNew(df)
@@ -81,7 +87,6 @@ def infiniteLoop(df:DataFrame):
             continue
         elif user == OPTIONS['save']:
             CSV_save(df)
-            
             continue
         elif user == OPTIONS['exit']:
             print("\nBye")

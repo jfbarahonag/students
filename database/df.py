@@ -45,6 +45,12 @@ def df_remove(df:DataFrame, idx:int)->DataFrame:
 
     return df
 
+def df_update(df:DataFrame, args:any)->DataFrame:
+    idx, field, val = args
+    field = field.upper()
+    df.loc[idx, field] = val
+    return df
+
 def df_reset():
     res = df_create()
     return res["df"] 
