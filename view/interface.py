@@ -1,8 +1,8 @@
 # ----------------------- VIEW -----------------------
-def printStartup():
+def interface_printStartup():
     print(f'+-----------------------------+\nPress 1 to open a CSV file\n+-----------------------------+')
 
-def printMenu():
+def interface_printMenu():
     print("+-----------------------------+")
     print("Select an option:")
     print("1. Check all students")

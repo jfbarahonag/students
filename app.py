@@ -18,7 +18,7 @@ OPTIONS = {
 def infiniteLoop(df:DataFrame):
 
     while(True):
-        printMenu()
+        interface_printMenu()
         user = input()
         
         if user == OPTIONS['check']:
@@ -46,7 +46,7 @@ def infiniteLoop(df:DataFrame):
             print("Bad input")
 
 def run():
-    printStartup()
+    interface_printStartup()
 
     init = input()
 
