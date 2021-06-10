@@ -3,8 +3,6 @@ from file import *
 from model import *
 from view import *
 
-from pandas.core.frame import DataFrame
-
 OPTIONS = {
     "check":'1',
     "update":'2',
@@ -14,8 +12,8 @@ OPTIONS = {
     "save":'6',
     "exit":'7',
 }
-
-def infiniteLoop(df:DataFrame):
+# ---------------------- CONTROLLER --------------------- TODO: Move this out of here
+def infiniteLoop():
 
     while(True):
         interface_printMenu()
@@ -44,6 +42,7 @@ def infiniteLoop(df:DataFrame):
             break
         else:
             print("Bad input")
+# ------------------- END CONTROLLER --------------------
 
 def run():
     interface_printStartup()
