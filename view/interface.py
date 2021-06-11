@@ -1,6 +1,6 @@
 # ----------------------- VIEW -----------------------
 def interface_printStartup():
-    print(f'+-----------------------------+\nPress 1 to open a CSV file\n+-----------------------------+')
+    print(f'+-----------------------------+\nPress 1 to open the database\n+-----------------------------+')
 
 def interface_printMenu():
     print("+-----------------------------+")
