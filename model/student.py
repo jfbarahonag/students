@@ -1,4 +1,4 @@
-from database import *
+from model.df import *
 from pandas.core.frame import DataFrame
 
 # ---------------------- STUDENT ---------------------
