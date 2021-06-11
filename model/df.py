@@ -45,8 +45,42 @@ def df_remove(df:DataFrame, idx:int)->DataFrame:
 
     return df
 
-def df_update(df:DataFrame, args:any)->DataFrame:
+def df_assignVal(val: any, field:str)->any: #private
+    if field ==  "dni" or field ==  "comments":
+        return val
+    elif field == "name":
+        return val.capitalize()
+    elif field ==  "grades":
+        return float(val)
+                                                                      
+def df_parseArgs(df:DataFrame, args:tuple)->tuple: #private
     idx, field, val = args
+    # validate index
+    try:
+        df.loc[idx]
+    except:
+        print('\033[91m' + "Invalid index" + '\033[0m')# TODO: This is an interface message
+        return (-1,-1,-1)
+    
+    # validate field
+    try:
+        df.loc[idx, field]
+    except:
+        print('\033[91m' + "Invalid field" + '\033[0m')# TODO: This is an interface message
+        return (-1,-1,-1)
+    
+    #assign the value
+    val = df_assignVal(val, field)
+
+    return (idx, field, val)
+
+def df_update(df:DataFrame, args:tuple)->DataFrame:
+    idx, field, val = df_parseArgs(df, args)
+
+    if (idx == -1):
+        print("Not saved") # TODO: This is an interface message
+        return df
+    #idx, field, val = args
     df.loc[idx, field] = val
     df.index.name = "index" # to avoid deleting index in the dataframe
     return df
@@ -57,4 +91,10 @@ def df_saveCSV(df:DataFrame, filename:str):
 def df_reset():
     res = df_create()
     return res["df"] 
+
+def df_validate(df:DataFrame, val=0, key="index"):
+    if key == "index":
+        return val in df.index
+    
+    return key in df
 # ---------------------- END DF ----------------------

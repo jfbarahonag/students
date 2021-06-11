@@ -10,7 +10,7 @@ OPTIONS = {
     "save":'6',
     "exit":'7',
 }
-# ---------------------- CONTROLLER --------------------- TODO: Move this out of here
+# ---------------------- CONTROLLER ---------------------
 def infiniteLoop(df:DataFrame):
 
     while(True):
@@ -20,7 +20,7 @@ def infiniteLoop(df:DataFrame):
         if user == OPTIONS['check']:
             df_showData(df)
             continue
-        elif user == OPTIONS['update']: # TODO
+        elif user == OPTIONS['update']:
             df = student_update(df)
             continue
         elif user == OPTIONS['add']:

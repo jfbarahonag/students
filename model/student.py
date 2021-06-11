@@ -6,7 +6,14 @@ def student_update(df:DataFrame):
     df_showData(df)
 
     idx = int(input('Please insert the index of the student: '))
+    if not df_validate(df, idx):
+        print('Bad index') # TODO: This is an interface message
+        return df
     field = input('Please insert the field you want change: ')
+    if not df_validate(df, key=field):
+        print('Bad field') # TODO: This is an interface message
+        return df
+
     val = input(f'Please insert the new value to the {field}: ')
 
     return df_update(df, (idx, field, val))
