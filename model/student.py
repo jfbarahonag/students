@@ -36,6 +36,10 @@ def student_remove(df:DataFrame):
     df_showData(df)
 
     idx = int(input('Please insert the index of the student: '))
+    
+    if not df_validate(df, idx):
+        print('Bad index')
+        return df
 
     return df_remove(df, idx)
 
